@@ -1,0 +1,10 @@
+button:disabled{
+    background-color: grey;
+    cursor: not-allowed;
+}
+
+.error-msg{
+    color: red;
+    margin: 5px 0;
+    font-weight: bold;
+}
