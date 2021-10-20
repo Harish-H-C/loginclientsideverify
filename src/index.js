@@ -15,7 +15,7 @@ function ValidationMessage(props) {
 class App extends Component {
 
     state = {
-            userId_name: "",usernameValid:false,
+            username: "",usernameValid:false,
             email:"",emailValid:false,
             password: "",passwordValid:false,
             passwordConfirmation: "",passwordConfirmationValid:false,
@@ -30,19 +30,19 @@ class App extends Component {
             })
         }
 
-        updateUsername = (userId_name) => {
-            this.setState({userId_name:userId_name},this.validateUsername)
+        updateUsername = (username) => {
+            this.setState({username:username},this.validateUsername)
         }
 
         validateUsername = () => {
-            const{userId_name} = this.state;
+            const{username} = this.state;
             let usernameValid = true;
             let error = {...this.state.error}
 
-            if(userId_name.length < 3)
+            if(username.length < 3)
             {
                 usernameValid = false;
-                error.userId_name = "Username must be greater than 3 character"
+                error.username = "username must be greater than 3 character"
             }
             this.setState({usernameValid, error}, this.validateForm)
         }
@@ -112,9 +112,9 @@ class App extends Component {
                 <main role="main">
                     <form action="#" id='js-form'>
                         <div className="form-group">
-                            <ValidationMessage  valid={this.state.usernameValid} msg={this.state.error.userId_name}/>
+                            <ValidationMessage  valid={this.state.usernameValid} msg={this.state.error.username}/>
                             <label htmlFor="username">Username</label>
-                            <input type="text" id="username" name="username" className="form-field" value={this.state.userId_name} onChange={(e)=>this.updateUsername(e.target.value)}/>
+                            <input type="text" id="username" name="username" className="form-field" value={this.state.username} onChange={(e)=>this.updateUsername(e.target.value)}/>
                         </div>
                         <div className="form-group">
                             <ValidationMessage  valid={this.state.emailValid} msg={this.state.error.email}/>
